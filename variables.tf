@@ -24,3 +24,26 @@ variable "program" {
     error_message = "valid values for program are 'crdc', 'ccdi', and 'ctos'"
   }
 }
+
+variable "force_delete" {
+  type        = bool
+  description = "force delete even when the repository is not empty"
+  default     = false
+}
+
+variable "image_tag_mutability" {
+  type        = string
+  description = "whether to enforce tag immutability - valid values are 'MUTABLE' and 'IMMUTABLE'"
+  default     = "IMMUTABLE"
+}
+
+variable "image_type" {
+  type        = string
+  description = "the type of images maintained in the repository (i.e. 'backend')"
+}
+
+variable "scan_on_push" {
+  type        = bool
+  description = "execute scans each time an image is pushed to the repository"
+  default     = true
+}
